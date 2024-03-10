@@ -1,0 +1,11 @@
+name=input("what is your name?")
+print("hello",name+".")
+lab=float(input("lab score"))
+mid=float(input("mid score"))
+final=float(input("final score"))
+last_score=(lab*0.25)+(mid*0.35)+(final*0.4)
+print("last score",last_score)
+print("final:" ,final)
+print("lab:" ,lab)
+print("mid:" ,mid)
+
