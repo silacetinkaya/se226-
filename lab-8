@@ -1,0 +1,37 @@
+import cv2
+import numpy as np
+
+
+image = cv2.imread("/Users/silacetinkaya/Desktop/resim.jpg")
+
+
+cv2.imshow("Original Image", image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+blue_channel = image[:, :, 0]
+green_channel = image[:, :, 1]
+red_channel = image[:, :, 2]
+
+cv2.imshow("Blue Channel", blue_channel)
+cv2.imshow("Green Channel", green_channel)
+cv2.imshow("Red Channel", red_channel)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+red_channel_modified = red_channel.copy()
+red_channel_modified[(green_channel > 0) | (blue_channel > 0)] = 0
+
+
+blue_channel_modified = blue_channel.copy()
+blue_channel_modified[(green_channel > 0) | (red_channel > 0)] = 0
+
+
+modified_image = cv2.merge([blue_channel_modified, green_channel, red_channel_modified])
+
+
+cv2.imshow("Modified Image", modified_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
